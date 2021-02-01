@@ -2,15 +2,6 @@ package linkedlist;
 
 import java.util.NoSuchElementException;
 
-/* Name: Eshita Kumar
- * Netid: ek536
- * What I thought about this assignment:
- * This assignment helped me get a better understanding of linked lists and
- * JavaHypertext. In addition to this, I found myself drawing out lots of the
- * functions in order to see all of the fields which were changing, as well as
- * how parts of the nodes were changing.
- */
-
 /** An instance is a doubly linked list. */
 public class DList<E> {
 

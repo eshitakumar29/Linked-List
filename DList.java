@@ -97,10 +97,6 @@ public class DList<E> {
      * E.g. for the list containing two empty strings, the result is "[, ]". <br>
      * E.G. for the empty list, the result is "[]". */
     public String toStringR() { // Note:
-        // TODO 1. Look at toString() to see how this method should be written. It
-        // should be like that one except it processes elements in reverse order.
-        // You can't do much testing of it until you have completed method append.
-        // Test the two of them together, in one testing procedure.
         StringBuilder sb= new StringBuilder("["); // Starts the string
         Node t= tail;
         while (t != null) { // While there is a tail ...
@@ -115,9 +111,6 @@ public class DList<E> {
     /** add value v to the end of the list. <br>
      * This operation takes constant time. */
     public void append(E v) {
-        // TODO 2. After writing this method, test this method and method toStringR
-        // thoroughly before starting on the next method. These two methods must be
-        // correct in order to be able to write and test all the others.
         if (size == 0) {
             Node nodeV= new Node(null, v, null); // makes the first node in the list
             head= nodeV; // assigns the head as the new node
@@ -133,7 +126,6 @@ public class DList<E> {
     /** Add value v to the front of the list. <br>
      * This operation takes constant time. */
     public void prepend(E v) {
-        // TODO 3. Write and test this method before moving on to method getNode.
         if (size == 0) {
             Node nodeV= new Node(null, v, null); // makes the first node in the list
             head= nodeV; // assigns the head as the new node
@@ -150,15 +142,6 @@ public class DList<E> {
      * if h = 1, return second node, etc.<br>
      * Throw an IllegalArgumentException if h <0 or h >= size of list */
     protected Node getNode(int h) {
-        // TODO 4. This method should take time proportional to min(h, size-h).
-        // For example, if h < size/2, search from the beginning of the
-        // list, otherwise search from the end of the list.
-        // You will probably write two loops.
-        // In testing this method, you should ensure that both loops work properly,
-        // including the extreme cases when they execute 0 iterations.
-        // One thing you can do in your testing program is to create a list with
-        // 20 elements --use a loop to fill them with values. Then, write another
-        // loop to test getNode(0) through getNode(19) all work properly.
         if (h < 0 || h > size - 1) { throw new IllegalArgumentException(); }
         Node nodeH= head; // makes the start of the search at the beginning of the list
         if (h < size / 2) { // if h is in the beginning half of the list...
@@ -178,7 +161,6 @@ public class DList<E> {
      * This operation must take constant time.<br>
      * Precondition: n must be a node of this list; it may not be null. */
     public void delete(Node n) {
-        // TODO 5. Make sure this method takes constant time.
         if (n != head && n != tail) {
             n.prev.next= n.succ(); // makes node before n point to node after n
             n.next.prev= n.pred(); // makes node after n point to node before n
@@ -204,7 +186,6 @@ public class DList<E> {
      * This operation takes constant time.<br>
      * Precondition: n must be a node of this list; it may not be null. */
     public void insertAfter(E v, Node n) {
-        // TODO 6. Make sure this method takes constant time.
         if (n != tail) {
             Node nodeV= new Node(n, v, n.next);
             n.next.prev= nodeV;
